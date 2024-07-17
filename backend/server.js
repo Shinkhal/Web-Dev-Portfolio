@@ -15,7 +15,7 @@ const port = process.env.PORT || 4000;
 app.use(bodyParser.json());
 
 app.use(cors({
-    origin: "http://localhost:3000", 
+    origin: process.env.CLIENT_URI, 
     credentials: true
 }));
 
@@ -31,7 +31,7 @@ const transporter = nodemailer.createTransport({
 });
 
 app.get('/api/',(req,res)=>{
-  res.send('Hello World');
+  res.send('this is the server for react portfolio ');
 })
 
 app.post('/api/send-email', (req, res) => {
